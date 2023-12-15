@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <math.h>
 #include <cmath>
+#include <iterator>
 using namespace std;
 
 typedef struct AutomatoFinito {
@@ -14,8 +15,13 @@ typedef struct AutomatoFinito {
     vector<string> estadosRepresentados; //Estados referentes aos estados antigos
     string estadoInicial; // Estado inicial do automato finito
 }AutomatoFinito;
+typedef struct listaEncadeada {
+    string value; //Valor referente x
+    string value0; //valor referente y
+    listaEncadeada *prox;
+} listaEncadeada;
 
-AutomatoFinito Escrita (AutomatoFinito AFN){
+AutomatoFinito Escrita (AutomatoFinito AFN){ //Recebe Input do usuário
     int qtdE, qtdT, qtdS, qtdEF; // Quantidade de Estados no Automato, e Quantidade de Transições no automato e quantidade de símbolos;
     string tmp; // String para alocação temporária de dados
     cout << "Quantidade de Estados:" << endl;
@@ -40,7 +46,8 @@ AutomatoFinito Escrita (AutomatoFinito AFN){
     for (int i = 0; i < qtdEF; i++){
         cin >> tmp;
         AFN.estadosFinais.push_back(tmp);
-        AFN.estados.push_back(tmp);
+        if (tmp != AFN.estadoInicial)AFN.estados.push_back(tmp);
+        else qtdE++;
     }
 
     cout << "Outros estados:" << endl;
@@ -63,11 +70,11 @@ AutomatoFinito Escrita (AutomatoFinito AFN){
         }
         if (valido) AFN.transicoes.push_back(tmp);
         else {
-            cout << "Valor inválido" << endl;
+            cout << "Valor inválido:" << tmp <<endl;
             i--;  
         }                     
     }
-    return AFN;
+    return AFN; //Retorna o Input do usuário
 }
 
 void LerAutomato (AutomatoFinito AF){
@@ -110,7 +117,41 @@ void LerAutomato (AutomatoFinito AF){
     }
 }
 
-AutomatoFinito removetrasitions(AutomatoFinito AF, vector<string> transitionsSet){
+vector<vector<string>> generateTable (AutomatoFinito AF){ //Gera tabela de transição
+    vector<string> normal (AF.simbolos.size(), "");
+    vector<vector<string>> tabelaTransicao(AF.estados.size()+1, normal); //Tabela de Transições do automato
+    for(string transicao : AF.transicoes){
+        string qi, qj, simbolo; //Estados que serão transitados e o simbolo
+        int posicaoI, posicaoJ, posicaoS; //Refere a posição na tabela de estados;
+        istringstream tmp(transicao);
+        getline(tmp, qi, ',');
+        getline(tmp, qj, ',');
+        getline(tmp, simbolo);
+        //Busca Pelas posições dos estados e simbolos de alfabeto
+        if(qi == AF.estadoInicial) posicaoI = -1;
+        else for (posicaoI = 0; posicaoI < AF.estados.size(); posicaoI++) if (AF.estados[posicaoI] == qi) break;
+
+        if(qj == AF.estadoInicial) posicaoJ = -1;
+        else for (posicaoJ = 0; posicaoJ < AF.estados.size(); posicaoJ++) if (AF.estados[posicaoJ] == qj) break;
+
+        for (posicaoS = 0; posicaoS < AF.simbolos.size(); posicaoS++) if (AF.simbolos[posicaoS] == simbolo) break;
+        
+        //Adiciona qj à tabela de transições        
+        istringstream tmp2(tabelaTransicao[posicaoI+1][posicaoS]);        
+        getline(tmp2, qi, ',');       
+        while(qi != "\0"){
+            if(qi == qj){
+                qj = "-1";
+                break;
+            }
+            getline(tmp2, qi, ',');
+        }
+        if (qj != "-1") tabelaTransicao[posicaoI+1][posicaoS] += qj + ",";  
+    }
+    return tabelaTransicao;
+}
+
+AutomatoFinito removetrasitions(AutomatoFinito AF, vector<string> transitionsSet){ //Remove transições inalcansáveis
     bool change = true; //determina se ouve mudança na lista de estados;
     while (change){ // Este while apaga todos os estados que são inacecíveis dado qualquer input
         change = false;
@@ -165,7 +206,7 @@ AutomatoFinito removetrasitions(AutomatoFinito AF, vector<string> transitionsSet
     return AF;
 }
 
-AutomatoFinito thompson (AutomatoFinito AFN){
+AutomatoFinito thompson (AutomatoFinito AFN){ //Executa o algorítimo de thompson
     vector<string> workList; //Lista de transições em e(epsilon, vazio)
     for (string e : AFN.transicoes){
         if (e.back() == 'e') workList.push_back(e);
@@ -212,50 +253,12 @@ AutomatoFinito thompson (AutomatoFinito AFN){
         
     }
     AFN = removetrasitions(AFN, AFN.transicoes);
-    // bool change = true; //determina se ouve mudança na lista de estados;
-    // while (change){ // Este while apaga todos os estados que são inacecíveis dado qualquer input
-    //     change = false;
-    //     vector<string> estados = AFN.estados; //Alocação temporária da lista de estados do automato
-    //     for (string e : estados){
-    //         bool temTransicao = false;
-    //         for (string t : AFN.transicoes){
-    //             string aux;
-    //             istringstream tmp(t); //Alocação temporária da transição t
-
-    //             getline(tmp, aux, ',');
-    //             getline(tmp, aux, ',');
-
-    //             if (e == aux){
-    //                 temTransicao = true;                    
-    //                 break;
-    //             }
-    //         }
-    //         if (!temTransicao) {
-    //             cout << "Inalcansável: " << e << endl;
-    //             AFN.estados.erase(find(begin(AFN.estados), end(AFN.estados), e));
-    //             while(find(begin(AFN.estadosFinais), end(AFN.estadosFinais), e) != end(AFN.estadosFinais)){
-    //                 AFN.estadosFinais.erase(find(begin(AFN.estadosFinais), end(AFN.estadosFinais), e));
-    //             }
-    //             vector<string> transicoes = AFN.transicoes;
-    //             for (string t : transicoes){
-    //                 string aux;
-    //                 istringstream tmp(t);
-
-    //                 getline(tmp, aux, ',');
-
-    //                 if (aux == e) AFN.transicoes.erase(find(begin(AFN.transicoes), end(AFN.transicoes), t));
-    //             }
-    //             // cout << "Sem transição inicial: " << e << endl;
-    //             change = true;
-    //         }
-    //     }
-    // }
     if (find(begin(AFN.simbolos), end(AFN.simbolos), "e") != end(AFN.simbolos)) 
         AFN.simbolos.erase(find(begin(AFN.simbolos), end(AFN.simbolos), "e"));
     return AFN;
 }
 
-void generateCombinations(const vector<string>& elements, vector<string>& current, int index, vector<string>& result) {
+void generateCombinations(const vector<string>& elements, vector<string>& current, int index, vector<string>& result) {//Gera combinações do vetor
     if (index == elements.size()) {
         string combination;
         for (int i = 0; i < current.size(); ++i) {
@@ -277,33 +280,8 @@ void generateCombinations(const vector<string>& elements, vector<string>& curren
     generateCombinations(elements, current, index + 1, result);
 }
 
-AutomatoFinito AFNtoAFD (AutomatoFinito AFN){
-    string tabelaTransicao[AFN.estados.size()+1][AFN.simbolos.size()]; //Tabela de Transições do automato
-    for(string transicao : AFN.transicoes){ //População da tabela de transição
-        string qi, qj, simbolo; //Estados que serão transitados e o simbolo
-        int posicaoI, posicaoJ, posicaoS; //Refere a posição na tabela de estados;
-        istringstream tmp(transicao);
-        getline(tmp, qi, ',');
-        getline(tmp, qj, ',');
-        getline(tmp, simbolo);
-        if(qi == AFN.estadoInicial) posicaoI = -1;
-        else for (posicaoI = 0; posicaoI < AFN.estados.size(); posicaoI++) if (AFN.estados[posicaoI] == qi) break;
-
-        if(qj == AFN.estadoInicial) posicaoJ = -1;
-        else for (posicaoJ = 0; posicaoJ < AFN.estados.size(); posicaoJ++) if (AFN.estados[posicaoJ] == qj) break;
-
-        for (posicaoS = 0; posicaoS < AFN.simbolos.size(); posicaoS++) if (AFN.simbolos[posicaoS] == simbolo) break;
-        istringstream tmp2(tabelaTransicao[posicaoI+1][posicaoS]);       
-        getline(tmp2, qi, ',');       
-        while(qi != "\0"){
-            if(qi == qj){
-                qj = "-1";
-                break;
-            }
-            getline(tmp2, qi, ',');
-        }
-        if (qj != "-1") tabelaTransicao[posicaoI+1][posicaoS] += qj + ",";  
-    }
+AutomatoFinito AFNtoAFD (AutomatoFinito AFN){ //Converte um AFN para um AFD
+    vector<vector<string>> tabelaTransicao = generateTable(AFN); //Tabela de Transições do automato
     
     //-------Tabela de transição AFN---------------
     cout << "Tabela de transição AFN:" << endl;
@@ -314,30 +292,29 @@ AutomatoFinito AFNtoAFD (AutomatoFinito AFN){
         cout << endl;
     }
     // ---- Tabela de conversão ----
-    int sizeEstados = (int) pow(2.0, AFN.estados.size() + 1);
+    int sizeEstados = (int) pow(2.0, AFN.estados.size() + 1); //Número de combinações possíveis (incluindo vazio)
     string tabelaConversao[sizeEstados-1][AFN.simbolos.size()]; //Tabela que gerará novas transições
 
     vector<string> v = AFN.estados; //Vetor para alocação temporária de estados
     v.push_back(AFN.estadoInicial);
     vector<string> current;
     vector<string> result; //Lista de novos estados
-
-    generateCombinations(v, current, 0, result);
+    generateCombinations(v, current, 0, result); //Gera todas as combinações possíveis dos estados
+    
     for(int i = 0; i < sizeEstados-1; i++){
         istringstream tmp(result[i]);
         string qi; //novo estado inicial
         while(getline(tmp, qi, ',')){
-            int posicaoI;
+            int posicaoI; //Posição de qi na tabela estados
             if(qi == AFN.estadoInicial) posicaoI = -1;
             else for (posicaoI = 0; posicaoI < AFN.estados.size(); posicaoI++) if (AFN.estados[posicaoI] == qi) break;
             posicaoI++;
             for(int j = 0; j < AFN.simbolos.size(); j++){
                 bool repetido = false; //diz se o estado já foi adicionado
                 string qj, qk; //Estado que será transitado
-                istringstream tmp2(tabelaTransicao[posicaoI][j]);
-                istringstream tmp3(tabelaConversao[i][j]);
+                istringstream tmp2(tabelaTransicao[posicaoI][j]); //Tabela de transição na posição i j        
                 while(getline(tmp2, qk, ',')){
-                    
+                    istringstream tmp3(tabelaConversao[i][j]);//Tabela de converção na posição i j
                     while(getline(tmp3, qj, ',')){
                         if (qk != qj) repetido = false;
                         else {
@@ -425,6 +402,205 @@ AutomatoFinito AFNtoAFD (AutomatoFinito AFN){
     return AFN;
 }
 
+void addToList (listaEncadeada* lista, string value, string value0){
+    if (lista->prox != NULL) addToList(lista->prox, value, value0);
+    if (lista->value == "A"){
+        lista->value = value;
+        lista->value0 = value0;
+        return;
+    }
+    listaEncadeada *add = new listaEncadeada();
+    add->prox = NULL;
+    add->value = value;
+    add->value0 = value0;
+    lista->prox = add;
+}
+
+void notEqual (vector<string> estados, vector<vector<listaEncadeada*>> tabelaEquivalencia, listaEncadeada *prox){
+    cout << "Lista" <<prox->value << prox->value0 << endl;
+    if (prox == nullptr) return;
+    if (prox->prox != nullptr) notEqual(estados, tabelaEquivalencia, prox->prox);
+    if (prox->value == "X") return;
+    if (prox->value != "A"){
+        int posi = find(begin(estados), end(estados), prox->value) - begin(estados);
+        int posj = find(begin(estados), end(estados), prox->value0) - begin(estados);
+        
+        if (tabelaEquivalencia[posi][posj]->value != "X") notEqual (estados, tabelaEquivalencia, tabelaEquivalencia[posi][posj]);          
+    }
+    prox->value = "X";
+    prox->value0 = "X";
+    
+    return;
+}
+
+AutomatoFinito minimoAFD (AutomatoFinito AFD){ // Minimiza um AFD
+    vector<vector<string>> tabelaTransicao = generateTable(AFD); //Tabela das transições do automato AFD
+    vector<string> transicaoInicial = tabelaTransicao[0];
+    tabelaTransicao.erase(tabelaTransicao.begin());
+    tabelaTransicao.emplace(tabelaTransicao.end()-1, transicaoInicial);
+    // tabelaTransicao.emplace(tabelaTransicao.begin(), transicaoInicial);
+    bool transicaoVazia = false;
+    cout << "Tabela de transição AFD:" << endl;
+    for (int i = 0; i < AFD.estados.size(); ++i) {
+        for (int j = 0; j < AFD.simbolos.size(); ++j) {
+            if (tabelaTransicao[i][j] == "") {
+                tabelaTransicao[i][j] = "V,";
+                if (transicaoVazia == false){
+                    transicaoVazia = true;
+                    AFD.estados.push_back("V");
+                }               
+            }
+            cout << tabelaTransicao[i][j] << "\t";
+        }
+        cout << endl;
+    }  
+    vector<vector<listaEncadeada*>> tabelaEquivalencia (AFD.estados.size()); //Tabela de equivalência dos estados
+    //Marcar com X, os estados diferentes (final e não final)
+    for (int x = 1; x < AFD.estados.size(); x++){//Deslocamento x y na tabela
+        for(int y = 0; y < x; y++){
+            listaEncadeada* add = new listaEncadeada();
+            add->prox = nullptr;
+
+            bool finalX = false, finalY = false; //Situação do estado na tabela final
+            if (find(begin(AFD.estadosFinais),end(AFD.estadosFinais), AFD.estados[x]) != end(AFD.estadosFinais))
+                finalX = true;
+            if (find(begin(AFD.estadosFinais),end(AFD.estadosFinais), AFD.estados[y]) != end(AFD.estadosFinais))
+                finalY = true;
+
+            if(finalX != finalY) add->value = "X";
+            else add->value = "A";
+            tabelaEquivalencia[x].push_back(add);
+        }
+    }
+    //Tabela gerada
+    cout << "Tabela dos finais com não finais:" << endl;
+    for (int i = 1; i < AFD.estados.size(); i++){       
+        cout << AFD.estados[i] << "\t";
+        for (int j = 0; j < i; j++){
+            cout << tabelaEquivalencia[i][j]->value << "\t";            
+        }
+        cout << endl;
+    }
+    cout << "\t ";
+    for (int i = 0; i < AFD.estados.size()-1;i++){
+        cout << AFD.estados[i] << "\t";
+    } 
+    cout << endl;
+    //Verificação de equivalência para situações não triviais
+    for (int x = 1; x < AFD.estados.size(); x++){//Deslocamento x y na tabela de equivalência      
+        for (int y = 0; y < x; y++){
+            if (tabelaEquivalencia[x][y]->value != "X"){
+                for(int s = 0; s < AFD.simbolos.size(); s++){ //Para cada símbolo s
+                    string qi, qj; //Estados para onde x e y transitam
+                    qi = tabelaTransicao[x][s];
+                    qj = tabelaTransicao[y][s];
+                    qi.pop_back();
+                    qj.pop_back();
+                    cout << AFD.estados[x] << ":" << AFD.estados[y] << endl;
+                    
+                    if(qi != qj){
+                        auto itI = find(begin(AFD.estados), end(AFD.estados), qi);
+                        auto itJ = find(begin(AFD.estados), end(AFD.estados), qj);
+                        int posi, posj;//Posição X e Y do estado de referência na tabela de equivalência
+                        if (itI < itJ){                        
+                            string tmp = qi;
+                            auto tmp2 = itI;
+                            itI = itJ;
+                            itJ = tmp2;
+                            qi = qj;
+                            qj = tmp;
+                        }
+                        cout << "R:" << qi << ":" << qj << endl;
+                        posi = itI - begin(AFD.estados);
+                        posj = itJ - begin(AFD.estados);
+                        cout << tabelaEquivalencia[posi][posj]->value << endl;
+                        if(tabelaEquivalencia[posi][posj]->value != "X"){
+                            addToList(tabelaEquivalencia[posi][posj], AFD.estados[x], AFD.estados[y]);
+                            cout << "oi" << endl;
+                        }
+                        else{
+                            notEqual(AFD.estados,tabelaEquivalencia,tabelaEquivalencia[x][y]);
+                        }
+                    }                      
+                }
+            }            
+        }
+    }
+    cout << "Tabela de equivalência:" << endl;
+    for (int i = 1; i < AFD.estados.size(); i++){       
+        cout << AFD.estados[i] << "\t";
+        for (int j = 0; j < i; j++){
+            cout << tabelaEquivalencia[i][j]->value << "\t";            
+        }
+        cout << endl;
+    }
+    cout << "\t ";
+    for (int i = 0; i < AFD.estados.size()-1;i++){
+        cout << AFD.estados[i] << "\t";
+    } 
+    cout << endl;
+    //Remove o estado vazio V da lista
+    if(transicaoVazia){
+        string cu = AFD.estados.back();
+        cout << cu << endl;
+        AFD.estados.pop_back();
+    }
+    
+    int count = 0; //numero de novos estados;
+    
+    vector<string> estados = AFD.estados;
+    for (int i = 1; i < estados.size(); i++){       
+        cout << estados[i] << "\t" << endl;
+        for (int j = 0; j < i; j++){
+            
+            if (tabelaEquivalencia[i][j]->value != "X"){
+                for (int x = 0; x < AFD.transicoes.size(); x++){
+                    
+                    istringstream tmp(AFD.transicoes[x]);//Alocação temporária da transição
+                    string estadoI, estadoJ, simbol;
+                    getline(tmp, estadoI, ',');
+                    getline(tmp, estadoJ, ',');
+                    getline(tmp, simbol, ',');
+                    if (estadoI == estados[i] || estadoI == estados[j]){
+                        estadoI = "N" + to_string(count);
+                    }
+                    if (estadoJ == estados[i] || estadoJ == estados[j]){
+                        estadoJ = "N" + to_string(count);
+                    }
+                    AFD.transicoes[x] = estadoI + ',' + estadoJ + ',' +simbol;
+                }      
+                auto it = find (AFD.estadosFinais.begin(), AFD.estadosFinais.end(), estados[i]);
+                if (it != AFD.estadosFinais.end()){
+                    int pos = it - AFD.estadosFinais.begin();
+                    AFD.estadosFinais[pos] =  "N" + to_string(count);   
+                }              
+                it = find (AFD.estadosFinais.begin(), AFD.estadosFinais.end(), estados[j]);
+                if (it != AFD.estadosFinais.end()) AFD.estadosFinais.erase(it);
+                if (estados[i] == AFD.estadoInicial) AFD.estadoInicial = "N" + to_string(count);
+
+                it = find (AFD.estados.begin(), AFD.estados.end(), estados[i]);
+                if (it != AFD.estados.end()){
+                    int pos = it - AFD.estados.begin();
+                    AFD.estados[pos] =  "N" + to_string(count);   
+                }
+                AFD.estados.erase(find(AFD.estados.begin(), AFD.estados.end(), AFD.estados[j]));
+                // AFD.estadosRepresentados.erase(find(AFD.estadosRepresentados.begin(), AFD.estadosRepresentados.end(), AFD.estadosRepresentados[j]));
+                AFD.estadosRepresentados.erase(AFD.estadosRepresentados.begin(), AFD.estadosRepresentados.end());
+                count++;
+            }
+            
+            // cout << tabelaEquivalencia[i][j]->value << "\t";            
+        }
+        cout << endl;
+    }
+    cout << "\t ";
+    for (int i = 0; i < AFD.estados.size()-1;i++){
+        cout << AFD.estados[i] << "\t";
+    } 
+    cout << endl;
+    return AFD;
+}
+
 int main (){   
     AutomatoFinito AFNe; //Definição do Automato Finito Não determinístico com transições em epsilon
     AutomatoFinito AFN; //Automato Finito Nao determinístico sem transições em epsilon
@@ -434,13 +610,15 @@ int main (){
     AFNe = Escrita(AFNe); // Escreve o AFNe com base no input do usuário
     LerAutomato (AFNe);
     cout << "----- thompson -------" << endl; 
-    AFN = thompson(AFNe);
-    LerAutomato (AFN);
+    AFN = thompson(AFNe); //Executa o algorítimo de thompson
     cout << "----- AFN > AFD ------" << endl;
-    AFD = AFNtoAFD(AFN);
+    AFD = AFNtoAFD(AFN); //Converte a saída do Algorítmo de thompson para AFD
     LerAutomato (AFD);
     cout << "-- Minimização AFD ---" << endl;
+    minAFD = minimoAFD(AFD); //Minimiza o AFD    
     cout << "------ saída ---------" << endl;
+    LerAutomato (minAFD);
+
     
 
     bool exit = false; //Determina se a opc digitada pelo usuário é valida ou não.
