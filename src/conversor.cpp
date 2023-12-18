@@ -98,20 +98,6 @@ void LerAutomato (AutomatoFinito AF){
     }
     cout << "Transições:" << endl;
     vector<string> usadas; //saidas já imprimidas (para evitar repetição)
-    // for (string t : AF.transicoes){
-    //     string qi, qj, s;
-    //     istringstream tmp(t);
-    //     getline(tmp, qi, ',');
-    //     getline(tmp, qj, ',');
-    //     getline(tmp, s);
-    //     if (find(begin(AF.estadosFinais), end(AF.estadosFinais), qi) != end(AF.estadosFinais)) qi = "F";
-    //     if (find(begin(AF.estadosFinais), end(AF.estadosFinais), qj) != end(AF.estadosFinais)) qj = "F";
-    //     string print = qi + ',' + qj + ',' + s;
-    //     if (find(begin(usadas), end(usadas), print) == end(usadas)){
-    //         cout << print << endl;
-    //         usadas.push_back(print); 
-    //     }       
-    // }
     for (string t : AF.transicoes){
         cout << t << endl;
     }
@@ -255,11 +241,13 @@ AutomatoFinito thompson (AutomatoFinito AFN){ //Executa o algorítimo de thompso
 
                 if (ql == qj){ //qi -> qj // qj -> qk ::> qi -> qk
                     add = qi + "," + qk + "," + transita;
-                    cout << add << endl << qi << "," << qj << "::" << ql << "," << qk <<endl;
+                    cout << add << " <<< " << qi << "," << qj << "::" << ql << "," << qk <<endl;
                     AFN.transicoes.push_back(add); //Adiciona nova transição a lista de transições
                     if (transita == 'e') workList.push_back(add); // Se a transição resultante for em epsilon, adiciona a worklist
                 }             
             }
+            
+            //Se qj ou qk é final, então qi é final.
             if (find(begin(AFN.estadosFinais), end(AFN.estadosFinais), qj) != end(AFN.estadosFinais) || find(begin(AFN.estadosFinais), end(AFN.estadosFinais), qk) != end(AFN.estadosFinais)) {
                 if (find(begin(AFN.estadosFinais), end(AFN.estadosFinais), qi) == end(AFN.estadosFinais)) {
                     AFN.estadosFinais.push_back(qi); // Se um dos estados da transição criada for final, adiciona o estado qi a lista de estados finais.
