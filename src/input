@@ -1,15 +1,2853 @@
-S7,S11,b
-S7,S13,c
-S11,S11,b
-S11,S13,c
-S13,S11,b
-S13,S13,c
-S14,S7,a
-
+Quantidade de Estados:
+Quantidade de Estados Finais:
+Quantidade de Transições:
+Quantidade de Símbolos no Alfabeto:
+Alfabeto:
+Estado inicial:
+Estado Final:
+Outros estados:
+Transições:
+E.g: q0,q1,a
+--------------------
+Estado Inicial: 
+q0
+Estados Finais (F):
+q9
+Estados:
+q9
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+Alfabeto:
+a
+b
+c
+e
+Transições:
 q0,q1,a
+q1,q8,e
+q8,q6,e
+q8,q9,e
+q7,q6,e
+q6,q2,e
+q6,q4,e
+q2,q3,b
+q4,q5,c
+q3,q7,e
+q5,q7,e
+q7,q9,e
+----- thompson -------
+q0,q8,a
+q1,q8::q0,q1
+q1,q6,e
+q1,q8::q8,q6
+q1,q9,e
+q1,q8::q8,q9
+q8,q2,e
+q8,q6::q6,q2
+q8,q4,e
+q8,q6::q6,q4
+q0,q6,a
+q8,q6::q0,q8
+q0,q9,a
+q8,q9::q0,q8
+q7,q2,e
+q7,q6::q6,q2
+q7,q4,e
+q7,q6::q6,q4
+q3,q6,e
+q7,q6::q3,q7
+q5,q6,e
+q7,q6::q5,q7
+q6,q3,b
+q6,q2::q2,q3
+q1,q2,e
+q6,q2::q1,q6
+q0,q2,a
+q6,q2::q0,q6
+q3,q2,e
+q6,q2::q3,q6
+q5,q2,e
+q6,q2::q5,q6
+q6,q5,c
+q6,q4::q4,q5
+q1,q4,e
+q6,q4::q1,q6
+q0,q4,a
+q6,q4::q0,q6
+q3,q4,e
+q6,q4::q3,q6
+q5,q4,e
+q6,q4::q5,q6
+q2,q7,b
+q3,q7::q2,q3
+q3,q9,e
+q3,q7::q7,q9
+q3,q2,e
+q3,q7::q7,q2
+q3,q4,e
+q3,q7::q7,q4
+q6,q7,b
+q3,q7::q6,q3
+q4,q7,c
+q5,q7::q4,q5
+q5,q9,e
+q5,q7::q7,q9
+q5,q2,e
+q5,q7::q7,q2
+q5,q4,e
+q5,q7::q7,q4
+q6,q7,c
+q5,q7::q6,q5
+q2,q9,b
+q7,q9::q2,q7
+q6,q9,b
+q7,q9::q6,q7
+q4,q9,c
+q7,q9::q4,q7
+q6,q9,c
+q7,q9::q6,q7
+q0,q6,a
+q1,q6::q0,q1
+q1,q3,b
+q1,q6::q6,q3
+q1,q5,c
+q1,q6::q6,q5
+q1,q7,b
+q1,q6::q6,q7
+q1,q7,c
+q1,q6::q6,q7
+q1,q9,b
+q1,q6::q6,q9
+q1,q9,c
+q1,q6::q6,q9
+q0,q9,a
+q1,q9::q0,q1
+q8,q3,b
+q8,q2::q2,q3
+q0,q2,a
+q8,q2::q0,q8
+q8,q7,b
+q8,q2::q2,q7
+q8,q9,b
+q8,q2::q2,q9
+q8,q5,c
+q8,q4::q4,q5
+q0,q4,a
+q8,q4::q0,q8
+q8,q7,c
+q8,q4::q4,q7
+q8,q9,c
+q8,q4::q4,q9
+q7,q3,b
+q7,q2::q2,q3
+q7,q7,b
+q7,q2::q2,q7
+q2,q2,b
+q7,q2::q2,q7
+q6,q2,b
+q7,q2::q6,q7
+q4,q2,c
+q7,q2::q4,q7
+q6,q2,c
+q7,q2::q6,q7
+q7,q9,b
+q7,q2::q2,q9
+q1,q2,b
+q7,q2::q1,q7
+q1,q2,c
+q7,q2::q1,q7
+q8,q2,b
+q7,q2::q8,q7
+q8,q2,c
+q7,q2::q8,q7
+q7,q5,c
+q7,q4::q4,q5
+q2,q4,b
+q7,q4::q2,q7
+q6,q4,b
+q7,q4::q6,q7
+q7,q7,c
+q7,q4::q4,q7
+q4,q4,c
+q7,q4::q4,q7
+q6,q4,c
+q7,q4::q6,q7
+q7,q9,c
+q7,q4::q4,q9
+q1,q4,b
+q7,q4::q1,q7
+q1,q4,c
+q7,q4::q1,q7
+q8,q4,b
+q7,q4::q8,q7
+q8,q4,c
+q7,q4::q8,q7
+q7,q4,b
+q7,q4::q7,q7
+q7,q2,c
+q7,q4::q4,q2
+q2,q6,b
+q3,q6::q2,q3
+q3,q3,b
+q3,q6::q6,q3
+q6,q6,b
+q3,q6::q6,q3
+q3,q5,c
+q3,q6::q6,q5
+q3,q7,b
+q3,q6::q6,q7
+q3,q7,c
+q3,q6::q6,q7
+q3,q9,b
+q3,q6::q6,q9
+q3,q9,c
+q3,q6::q6,q9
+q1,q6,b
+q3,q6::q1,q3
+q8,q6,b
+q3,q6::q8,q3
+q7,q6,b
+q3,q6::q7,q3
+q3,q2,b
+q3,q6::q6,q2
+q3,q2,c
+q3,q6::q6,q2
+q3,q4,b
+q3,q6::q6,q4
+q3,q4,c
+q3,q6::q6,q4
+q4,q6,c
+q5,q6::q4,q5
+q5,q3,b
+q5,q6::q6,q3
+q5,q5,c
+q5,q6::q6,q5
+q6,q6,c
+q5,q6::q6,q5
+q5,q7,b
+q5,q6::q6,q7
+q5,q7,c
+q5,q6::q6,q7
+q5,q9,b
+q5,q6::q6,q9
+q5,q9,c
+q5,q6::q6,q9
+q1,q6,c
+q5,q6::q1,q5
+q8,q6,c
+q5,q6::q8,q5
+q5,q2,b
+q5,q6::q6,q2
+q5,q2,c
+q5,q6::q6,q2
+q7,q6,c
+q5,q6::q7,q5
+q5,q4,b
+q5,q6::q6,q4
+q5,q4,c
+q5,q6::q6,q4
+q5,q6,b
+q5,q6::q6,q6
+q3,q6,c
+q5,q6::q3,q5
+q0,q2,a
+q1,q2::q0,q1
+q1,q3,b
+q1,q2::q2,q3
+q1,q7,b
+q1,q2::q2,q7
+q1,q9,b
+q1,q2::q2,q9
+q1,q2,b
+q1,q2::q2,q2
+q1,q4,b
+q1,q2::q2,q4
+q1,q6,b
+q1,q2::q2,q6
+q3,q3,b
+q3,q2::q2,q3
+q2,q2,b
+q3,q2::q2,q3
+q6,q2,b
+q3,q2::q6,q3
+q3,q7,b
+q3,q2::q2,q7
+q3,q9,b
+q3,q2::q2,q9
+q1,q2,b
+q3,q2::q1,q3
+q8,q2,b
+q3,q2::q8,q3
+q7,q2,b
+q3,q2::q7,q3
+q3,q2,b
+q3,q2::q2,q2
+q3,q4,b
+q3,q2::q2,q4
+q3,q6,b
+q3,q2::q2,q6
+q3,q2,b
+q3,q2::q3,q3
+q5,q2,b
+q3,q2::q5,q3
+q1,q2,b
+q3,q2::q1,q3
+q5,q3,b
+q5,q2::q2,q3
+q4,q2,c
+q5,q2::q4,q5
+q6,q2,c
+q5,q2::q6,q5
+q5,q7,b
+q5,q2::q2,q7
+q5,q9,b
+q5,q2::q2,q9
+q1,q2,c
+q5,q2::q1,q5
+q8,q2,c
+q5,q2::q8,q5
+q5,q2,b
+q5,q2::q2,q2
+q7,q2,c
+q5,q2::q7,q5
+q5,q4,b
+q5,q2::q2,q4
+q5,q6,b
+q5,q2::q2,q6
+q3,q2,c
+q5,q2::q3,q5
+q5,q2,c
+q5,q2::q5,q5
+q5,q2,b
+q5,q2::q2,q2
+q0,q4,a
+q1,q4::q0,q1
+q1,q5,c
+q1,q4::q4,q5
+q1,q7,c
+q1,q4::q4,q7
+q1,q9,c
+q1,q4::q4,q9
+q1,q2,c
+q1,q4::q4,q2
+q1,q4,c
+q1,q4::q4,q4
+q1,q6,c
+q1,q4::q4,q6
+q1,q2,c
+q1,q4::q4,q2
+q2,q4,b
+q3,q4::q2,q3
+q3,q5,c
+q3,q4::q4,q5
+q6,q4,b
+q3,q4::q6,q3
+q3,q7,c
+q3,q4::q4,q7
+q3,q9,c
+q3,q4::q4,q9
+q1,q4,b
+q3,q4::q1,q3
+q8,q4,b
+q3,q4::q8,q3
+q7,q4,b
+q3,q4::q7,q3
+q3,q2,c
+q3,q4::q4,q2
+q3,q4,c
+q3,q4::q4,q4
+q3,q4,b
+q3,q4::q3,q3
+q3,q6,c
+q3,q4::q4,q6
+q5,q4,b
+q3,q4::q5,q3
+q1,q4,b
+q3,q4::q1,q3
+q3,q4,b
+q3,q4::q3,q3
+q5,q4,b
+q3,q4::q5,q3
+q3,q2,c
+q3,q4::q4,q2
+q5,q5,c
+q5,q4::q4,q5
+q4,q4,c
+q5,q4::q4,q5
+q6,q4,c
+q5,q4::q6,q5
+q5,q7,c
+q5,q4::q4,q7
+q5,q9,c
+q5,q4::q4,q9
+q1,q4,c
+q5,q4::q1,q5
+q8,q4,c
+q5,q4::q8,q5
+q5,q2,c
+q5,q4::q4,q2
+q7,q4,c
+q5,q4::q7,q5
+q5,q4,c
+q5,q4::q4,q4
+q3,q4,c
+q5,q4::q3,q5
+q5,q6,c
+q5,q4::q4,q6
+q5,q4,c
+q5,q4::q5,q5
+q5,q2,c
+q5,q4::q4,q2
+q1,q4,c
+q5,q4::q1,q5
+q3,q4,c
+q5,q4::q3,q5
+q2,q9,b
+q3,q9::q2,q3
+q6,q9,b
+q3,q9::q6,q3
+q1,q9,b
+q3,q9::q1,q3
+q8,q9,b
+q3,q9::q8,q3
+q7,q9,b
+q3,q9::q7,q3
+q3,q9,b
+q3,q9::q3,q3
+q5,q9,b
+q3,q9::q5,q3
+q1,q9,b
+q3,q9::q1,q3
+q3,q9,b
+q3,q9::q3,q3
+q5,q9,b
+q3,q9::q5,q3
+q3,q3,b
+q3,q2::q2,q3
+q2,q2,b
+q3,q2::q2,q3
+q6,q2,b
+q3,q2::q6,q3
+q3,q7,b
+q3,q2::q2,q7
+q3,q9,b
+q3,q2::q2,q9
+q1,q2,b
+q3,q2::q1,q3
+q8,q2,b
+q3,q2::q8,q3
+q7,q2,b
+q3,q2::q7,q3
+q3,q2,b
+q3,q2::q2,q2
+q3,q4,b
+q3,q2::q2,q4
+q3,q6,b
+q3,q2::q2,q6
+q3,q2,b
+q3,q2::q3,q3
+q5,q2,b
+q3,q2::q5,q3
+q1,q2,b
+q3,q2::q1,q3
+q3,q2,b
+q3,q2::q3,q3
+q3,q2,b
+q3,q2::q2,q2
+q5,q2,b
+q3,q2::q5,q3
+q3,q4,b
+q3,q2::q2,q4
+q3,q9,b
+q3,q2::q2,q9
+q2,q4,b
+q3,q4::q2,q3
+q3,q5,c
+q3,q4::q4,q5
+q6,q4,b
+q3,q4::q6,q3
+q3,q7,c
+q3,q4::q4,q7
+q3,q9,c
+q3,q4::q4,q9
+q1,q4,b
+q3,q4::q1,q3
+q8,q4,b
+q3,q4::q8,q3
+q7,q4,b
+q3,q4::q7,q3
+q3,q2,c
+q3,q4::q4,q2
+q3,q4,c
+q3,q4::q4,q4
+q3,q4,b
+q3,q4::q3,q3
+q3,q6,c
+q3,q4::q4,q6
+q5,q4,b
+q3,q4::q5,q3
+q1,q4,b
+q3,q4::q1,q3
+q3,q4,b
+q3,q4::q3,q3
+q5,q4,b
+q3,q4::q5,q3
+q3,q2,c
+q3,q4::q4,q2
+q3,q4,c
+q3,q4::q4,q4
+q3,q4,b
+q3,q4::q3,q3
+q4,q9,c
+q5,q9::q4,q5
+q6,q9,c
+q5,q9::q6,q5
+q1,q9,c
+q5,q9::q1,q5
+q8,q9,c
+q5,q9::q8,q5
+q7,q9,c
+q5,q9::q7,q5
+q3,q9,c
+q5,q9::q3,q5
+q5,q9,c
+q5,q9::q5,q5
+q1,q9,c
+q5,q9::q1,q5
+q3,q9,c
+q5,q9::q3,q5
+q5,q9,c
+q5,q9::q5,q5
+q3,q9,c
+q5,q9::q3,q5
+q5,q3,b
+q5,q2::q2,q3
+q4,q2,c
+q5,q2::q4,q5
+q6,q2,c
+q5,q2::q6,q5
+q5,q7,b
+q5,q2::q2,q7
+q5,q9,b
+q5,q2::q2,q9
+q1,q2,c
+q5,q2::q1,q5
+q8,q2,c
+q5,q2::q8,q5
+q5,q2,b
+q5,q2::q2,q2
+q7,q2,c
+q5,q2::q7,q5
+q5,q4,b
+q5,q2::q2,q4
+q5,q6,b
+q5,q2::q2,q6
+q3,q2,c
+q5,q2::q3,q5
+q5,q2,c
+q5,q2::q5,q5
+q5,q2,b
+q5,q2::q2,q2
+q1,q2,c
+q5,q2::q1,q5
+q5,q4,b
+q5,q2::q2,q4
+q3,q2,c
+q5,q2::q3,q5
+q5,q2,c
+q5,q2::q5,q5
+q5,q9,b
+q5,q2::q2,q9
+q5,q2,b
+q5,q2::q2,q2
+q5,q4,b
+q5,q2::q2,q4
+q3,q2,c
+q5,q2::q3,q5
+q5,q5,c
+q5,q4::q4,q5
+q4,q4,c
+q5,q4::q4,q5
+q6,q4,c
+q5,q4::q6,q5
+q5,q7,c
+q5,q4::q4,q7
+q5,q9,c
+q5,q4::q4,q9
+q1,q4,c
+q5,q4::q1,q5
+q8,q4,c
+q5,q4::q8,q5
+q5,q2,c
+q5,q4::q4,q2
+q7,q4,c
+q5,q4::q7,q5
+q5,q4,c
+q5,q4::q4,q4
+q3,q4,c
+q5,q4::q3,q5
+q5,q6,c
+q5,q4::q4,q6
+q5,q4,c
+q5,q4::q5,q5
+q5,q2,c
+q5,q4::q4,q2
+q1,q4,c
+q5,q4::q1,q5
+q3,q4,c
+q5,q4::q3,q5
+q5,q4,c
+q5,q4::q5,q5
+q5,q4,c
+q5,q4::q4,q4
+q3,q4,c
+q5,q4::q3,q5
+q5,q9,c
+q5,q4::q4,q9
+q5,q2,c
+q5,q4::q4,q2
+--------------------
+Estado Inicial: 
+q0
+Estados Finais (F):
+q9
+q1
+q8
+q7
+q3
+q5
+Estados:
+q9
+q1
+q2
+q3
+q4
+q5
+q6
+q7
+q8
+Alfabeto:
+a
+b
+c
+Transições:
+q0,q1,a
+q2,q3,b
+q4,q5,c
+q0,q8,a
+q0,q6,a
+q0,q9,a
+q6,q3,b
+q0,q2,a
+q6,q5,c
+q0,q4,a
+q2,q7,b
+q6,q7,b
+q4,q7,c
+q6,q7,c
+q2,q9,b
+q6,q9,b
+q4,q9,c
+q6,q9,c
 q1,q3,b
 q1,q5,c
+q1,q7,b
+q1,q7,c
+q1,q9,b
+q1,q9,c
+q8,q3,b
+q8,q7,b
+q8,q9,b
+q8,q5,c
+q8,q7,c
+q8,q9,c
+q7,q3,b
+q7,q7,b
+q2,q2,b
+q6,q2,b
+q4,q2,c
+q6,q2,c
+q7,q9,b
+q1,q2,b
+q1,q2,c
+q8,q2,b
+q8,q2,c
+q7,q5,c
+q2,q4,b
+q6,q4,b
+q7,q7,c
+q4,q4,c
+q6,q4,c
+q7,q9,c
+q1,q4,b
+q1,q4,c
+q8,q4,b
+q8,q4,c
+q7,q4,b
+q7,q2,c
+q2,q6,b
 q3,q3,b
+q6,q6,b
 q3,q5,c
+q3,q7,b
+q3,q7,c
+q3,q9,b
+q3,q9,c
+q1,q6,b
+q8,q6,b
+q7,q6,b
+q3,q2,b
+q3,q2,c
+q3,q4,b
+q3,q4,c
+q4,q6,c
 q5,q3,b
 q5,q5,c
+q6,q6,c
+q5,q7,b
+q5,q7,c
+q5,q9,b
+q5,q9,c
+q1,q6,c
+q8,q6,c
+q5,q2,b
+q5,q2,c
+q7,q6,c
+q5,q4,b
+q5,q4,c
+q5,q6,b
+q3,q6,c
+q7,q2,b
+q3,q6,b
+q5,q4,b
+q7,q4,c
+q5,q6,c
+q3,q2,b
+q5,q4,c
+----- AFN > AFD ------
+Tabela de transição AFN:
+q1,q8,q6,q9,q2,q4,			
+			
+	q3,q7,q9,q2,q4,q6,	q5,q7,q9,q2,q4,q6,	
+	q3,q7,q9,q2,q4,q6,		
+	q3,q7,q9,q2,q4,q6,	q5,q7,q9,q2,q4,q6,	
+		q5,q7,q9,q2,q4,q6,	
+	q3,q7,q9,q2,q4,q6,	q5,q7,q9,q2,q4,q6,	
+	q3,q7,q9,q2,q4,q6,	q5,q7,q9,q2,q4,q6,	
+	q3,q7,q9,q4,q6,q2,	q5,q7,q9,q2,q6,q4,	
+	q3,q7,q9,q2,q4,q6,	q5,q7,q9,q2,q4,q6,	
+Tabela de transição AFD derivada:
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275		
+	S275		
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85		S323	
+		S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85			
+			
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275		
+	S275		
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85		S323	
+		S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85	S275	S323	
+	S275	S323	
+S85			
+Inalcansável: S0
+Inalcansável: S1
+Inalcansável: S2
+Inalcansável: S3
+Inalcansável: S4
+Inalcansável: S5
+Inalcansável: S6
+Inalcansável: S7
+Inalcansável: S8
+Inalcansável: S9
+Inalcansável: S10
+Inalcansável: S11
+Inalcansável: S12
+Inalcansável: S13
+Inalcansável: S14
+Inalcansável: S15
+Inalcansável: S16
+Inalcansável: S17
+Inalcansável: S18
+Inalcansável: S19
+Inalcansável: S20
+Inalcansável: S21
+Inalcansável: S22
+Inalcansável: S23
+Inalcansável: S24
+Inalcansável: S25
+Inalcansável: S26
+Inalcansável: S27
+Inalcansável: S28
+Inalcansável: S29
+Inalcansável: S30
+Inalcansável: S31
+Inalcansável: S32
+Inalcansável: S33
+Inalcansável: S34
+Inalcansável: S35
+Inalcansável: S36
+Inalcansável: S37
+Inalcansável: S38
+Inalcansável: S39
+Inalcansável: S40
+Inalcansável: S41
+Inalcansável: S42
+Inalcansável: S43
+Inalcansável: S44
+Inalcansável: S45
+Inalcansável: S46
+Inalcansável: S47
+Inalcansável: S48
+Inalcansável: S49
+Inalcansável: S50
+Inalcansável: S51
+Inalcansável: S52
+Inalcansável: S53
+Inalcansável: S54
+Inalcansável: S55
+Inalcansável: S56
+Inalcansável: S57
+Inalcansável: S58
+Inalcansável: S59
+Inalcansável: S60
+Inalcansável: S61
+Inalcansável: S62
+Inalcansável: S63
+Inalcansável: S64
+Inalcansável: S65
+Inalcansável: S66
+Inalcansável: S67
+Inalcansável: S68
+Inalcansável: S69
+Inalcansável: S70
+Inalcansável: S71
+Inalcansável: S72
+Inalcansável: S73
+Inalcansável: S74
+Inalcansável: S75
+Inalcansável: S76
+Inalcansável: S77
+Inalcansável: S78
+Inalcansável: S79
+Inalcansável: S80
+Inalcansável: S81
+Inalcansável: S82
+Inalcansável: S83
+Inalcansável: S84
+Inalcansável: S86
+Inalcansável: S87
+Inalcansável: S88
+Inalcansável: S89
+Inalcansável: S90
+Inalcansável: S91
+Inalcansável: S92
+Inalcansável: S93
+Inalcansável: S94
+Inalcansável: S95
+Inalcansável: S96
+Inalcansável: S97
+Inalcansável: S98
+Inalcansável: S99
+Inalcansável: S100
+Inalcansável: S101
+Inalcansável: S102
+Inalcansável: S103
+Inalcansável: S104
+Inalcansável: S105
+Inalcansável: S106
+Inalcansável: S107
+Inalcansável: S108
+Inalcansável: S109
+Inalcansável: S110
+Inalcansável: S111
+Inalcansável: S112
+Inalcansável: S113
+Inalcansável: S114
+Inalcansável: S115
+Inalcansável: S116
+Inalcansável: S117
+Inalcansável: S118
+Inalcansável: S119
+Inalcansável: S120
+Inalcansável: S121
+Inalcansável: S122
+Inalcansável: S123
+Inalcansável: S124
+Inalcansável: S125
+Inalcansável: S126
+Inalcansável: S127
+Inalcansável: S128
+Inalcansável: S129
+Inalcansável: S130
+Inalcansável: S131
+Inalcansável: S132
+Inalcansável: S133
+Inalcansável: S134
+Inalcansável: S135
+Inalcansável: S136
+Inalcansável: S137
+Inalcansável: S138
+Inalcansável: S139
+Inalcansável: S140
+Inalcansável: S141
+Inalcansável: S142
+Inalcansável: S143
+Inalcansável: S144
+Inalcansável: S145
+Inalcansável: S146
+Inalcansável: S147
+Inalcansável: S148
+Inalcansável: S149
+Inalcansável: S150
+Inalcansável: S151
+Inalcansável: S152
+Inalcansável: S153
+Inalcansável: S154
+Inalcansável: S155
+Inalcansável: S156
+Inalcansável: S157
+Inalcansável: S158
+Inalcansável: S159
+Inalcansável: S160
+Inalcansável: S161
+Inalcansável: S162
+Inalcansável: S163
+Inalcansável: S164
+Inalcansável: S165
+Inalcansável: S166
+Inalcansável: S167
+Inalcansável: S168
+Inalcansável: S169
+Inalcansável: S170
+Inalcansável: S171
+Inalcansável: S172
+Inalcansável: S173
+Inalcansável: S174
+Inalcansável: S175
+Inalcansável: S176
+Inalcansável: S177
+Inalcansável: S178
+Inalcansável: S179
+Inalcansável: S180
+Inalcansável: S181
+Inalcansável: S182
+Inalcansável: S183
+Inalcansável: S184
+Inalcansável: S185
+Inalcansável: S186
+Inalcansável: S187
+Inalcansável: S188
+Inalcansável: S189
+Inalcansável: S190
+Inalcansável: S191
+Inalcansável: S192
+Inalcansável: S193
+Inalcansável: S194
+Inalcansável: S195
+Inalcansável: S196
+Inalcansável: S197
+Inalcansável: S198
+Inalcansável: S199
+Inalcansável: S200
+Inalcansável: S201
+Inalcansável: S202
+Inalcansável: S203
+Inalcansável: S204
+Inalcansável: S205
+Inalcansável: S206
+Inalcansável: S207
+Inalcansável: S208
+Inalcansável: S209
+Inalcansável: S210
+Inalcansável: S211
+Inalcansável: S212
+Inalcansável: S213
+Inalcansável: S214
+Inalcansável: S215
+Inalcansável: S216
+Inalcansável: S217
+Inalcansável: S218
+Inalcansável: S219
+Inalcansável: S220
+Inalcansável: S221
+Inalcansável: S222
+Inalcansável: S223
+Inalcansável: S224
+Inalcansável: S225
+Inalcansável: S226
+Inalcansável: S227
+Inalcansável: S228
+Inalcansável: S229
+Inalcansável: S230
+Inalcansável: S231
+Inalcansável: S232
+Inalcansável: S233
+Inalcansável: S234
+Inalcansável: S235
+Inalcansável: S236
+Inalcansável: S237
+Inalcansável: S238
+Inalcansável: S239
+Inalcansável: S240
+Inalcansável: S241
+Inalcansável: S242
+Inalcansável: S243
+Inalcansável: S244
+Inalcansável: S245
+Inalcansável: S246
+Inalcansável: S247
+Inalcansável: S248
+Inalcansável: S249
+Inalcansável: S250
+Inalcansável: S251
+Inalcansável: S252
+Inalcansável: S253
+Inalcansável: S254
+Inalcansável: S255
+Inalcansável: S256
+Inalcansável: S257
+Inalcansável: S258
+Inalcansável: S259
+Inalcansável: S260
+Inalcansável: S261
+Inalcansável: S262
+Inalcansável: S263
+Inalcansável: S264
+Inalcansável: S265
+Inalcansável: S266
+Inalcansável: S267
+Inalcansável: S268
+Inalcansável: S269
+Inalcansável: S270
+Inalcansável: S271
+Inalcansável: S272
+Inalcansável: S273
+Inalcansável: S274
+Inalcansável: S276
+Inalcansável: S277
+Inalcansável: S278
+Inalcansável: S279
+Inalcansável: S280
+Inalcansável: S281
+Inalcansável: S282
+Inalcansável: S283
+Inalcansável: S284
+Inalcansável: S285
+Inalcansável: S286
+Inalcansável: S287
+Inalcansável: S288
+Inalcansável: S289
+Inalcansável: S290
+Inalcansável: S291
+Inalcansável: S292
+Inalcansável: S293
+Inalcansável: S294
+Inalcansável: S295
+Inalcansável: S296
+Inalcansável: S297
+Inalcansável: S298
+Inalcansável: S299
+Inalcansável: S300
+Inalcansável: S301
+Inalcansável: S302
+Inalcansável: S303
+Inalcansável: S304
+Inalcansável: S305
+Inalcansável: S306
+Inalcansável: S307
+Inalcansável: S308
+Inalcansável: S309
+Inalcansável: S310
+Inalcansável: S311
+Inalcansável: S312
+Inalcansável: S313
+Inalcansável: S314
+Inalcansável: S315
+Inalcansável: S316
+Inalcansável: S317
+Inalcansável: S318
+Inalcansável: S319
+Inalcansável: S320
+Inalcansável: S321
+Inalcansável: S322
+Inalcansável: S324
+Inalcansável: S325
+Inalcansável: S326
+Inalcansável: S327
+Inalcansável: S328
+Inalcansável: S329
+Inalcansável: S330
+Inalcansável: S331
+Inalcansável: S332
+Inalcansável: S333
+Inalcansável: S334
+Inalcansável: S335
+Inalcansável: S336
+Inalcansável: S337
+Inalcansável: S338
+Inalcansável: S339
+Inalcansável: S340
+Inalcansável: S341
+Inalcansável: S342
+Inalcansável: S343
+Inalcansável: S344
+Inalcansável: S345
+Inalcansável: S346
+Inalcansável: S347
+Inalcansável: S348
+Inalcansável: S349
+Inalcansável: S350
+Inalcansável: S351
+Inalcansável: S352
+Inalcansável: S353
+Inalcansável: S354
+Inalcansável: S355
+Inalcansável: S356
+Inalcansável: S357
+Inalcansável: S358
+Inalcansável: S359
+Inalcansável: S360
+Inalcansável: S361
+Inalcansável: S362
+Inalcansável: S363
+Inalcansável: S364
+Inalcansável: S365
+Inalcansável: S366
+Inalcansável: S367
+Inalcansável: S368
+Inalcansável: S369
+Inalcansável: S370
+Inalcansável: S371
+Inalcansável: S372
+Inalcansável: S373
+Inalcansável: S374
+Inalcansável: S375
+Inalcansável: S376
+Inalcansável: S377
+Inalcansável: S378
+Inalcansável: S379
+Inalcansável: S380
+Inalcansável: S381
+Inalcansável: S382
+Inalcansável: S383
+Inalcansável: S384
+Inalcansável: S385
+Inalcansável: S386
+Inalcansável: S387
+Inalcansável: S388
+Inalcansável: S389
+Inalcansável: S390
+Inalcansável: S391
+Inalcansável: S392
+Inalcansável: S393
+Inalcansável: S394
+Inalcansável: S395
+Inalcansável: S396
+Inalcansável: S397
+Inalcansável: S398
+Inalcansável: S399
+Inalcansável: S400
+Inalcansável: S401
+Inalcansável: S402
+Inalcansável: S403
+Inalcansável: S404
+Inalcansável: S405
+Inalcansável: S406
+Inalcansável: S407
+Inalcansável: S408
+Inalcansável: S409
+Inalcansável: S410
+Inalcansável: S411
+Inalcansável: S412
+Inalcansável: S413
+Inalcansável: S414
+Inalcansável: S415
+Inalcansável: S416
+Inalcansável: S417
+Inalcansável: S418
+Inalcansável: S419
+Inalcansável: S420
+Inalcansável: S421
+Inalcansável: S422
+Inalcansável: S423
+Inalcansável: S424
+Inalcansável: S425
+Inalcansável: S426
+Inalcansável: S427
+Inalcansável: S428
+Inalcansável: S429
+Inalcansável: S430
+Inalcansável: S431
+Inalcansável: S432
+Inalcansável: S433
+Inalcansável: S434
+Inalcansável: S435
+Inalcansável: S436
+Inalcansável: S437
+Inalcansável: S438
+Inalcansável: S439
+Inalcansável: S440
+Inalcansável: S441
+Inalcansável: S442
+Inalcansável: S443
+Inalcansável: S444
+Inalcansável: S445
+Inalcansável: S446
+Inalcansável: S447
+Inalcansável: S448
+Inalcansável: S449
+Inalcansável: S450
+Inalcansável: S451
+Inalcansável: S452
+Inalcansável: S453
+Inalcansável: S454
+Inalcansável: S455
+Inalcansável: S456
+Inalcansável: S457
+Inalcansável: S458
+Inalcansável: S459
+Inalcansável: S460
+Inalcansável: S461
+Inalcansável: S462
+Inalcansável: S463
+Inalcansável: S464
+Inalcansável: S465
+Inalcansável: S466
+Inalcansável: S467
+Inalcansável: S468
+Inalcansável: S469
+Inalcansável: S470
+Inalcansável: S471
+Inalcansável: S472
+Inalcansável: S473
+Inalcansável: S474
+Inalcansável: S475
+Inalcansável: S476
+Inalcansável: S477
+Inalcansável: S478
+Inalcansável: S479
+Inalcansável: S480
+Inalcansável: S481
+Inalcansável: S482
+Inalcansável: S483
+Inalcansável: S484
+Inalcansável: S485
+Inalcansável: S486
+Inalcansável: S487
+Inalcansável: S488
+Inalcansável: S489
+Inalcansável: S490
+Inalcansável: S491
+Inalcansável: S492
+Inalcansável: S493
+Inalcansável: S494
+Inalcansável: S495
+Inalcansável: S496
+Inalcansável: S497
+Inalcansável: S498
+Inalcansável: S499
+Inalcansável: S500
+Inalcansável: S501
+Inalcansável: S502
+Inalcansável: S503
+Inalcansável: S504
+Inalcansável: S505
+Inalcansável: S506
+Inalcansável: S507
+Inalcansável: S508
+Inalcansável: S509
+Inalcansável: S510
+Inalcansável: S511
+Inalcansável: S512
+Inalcansável: S513
+Inalcansável: S514
+Inalcansável: S515
+Inalcansável: S516
+Inalcansável: S517
+Inalcansável: S518
+Inalcansável: S519
+Inalcansável: S520
+Inalcansável: S521
+Inalcansável: S522
+Inalcansável: S523
+Inalcansável: S524
+Inalcansável: S525
+Inalcansável: S526
+Inalcansável: S527
+Inalcansável: S528
+Inalcansável: S529
+Inalcansável: S530
+Inalcansável: S531
+Inalcansável: S532
+Inalcansável: S533
+Inalcansável: S534
+Inalcansável: S535
+Inalcansável: S536
+Inalcansável: S537
+Inalcansável: S538
+Inalcansável: S539
+Inalcansável: S540
+Inalcansável: S541
+Inalcansável: S542
+Inalcansável: S543
+Inalcansável: S544
+Inalcansável: S545
+Inalcansável: S546
+Inalcansável: S547
+Inalcansável: S548
+Inalcansável: S549
+Inalcansável: S550
+Inalcansável: S551
+Inalcansável: S552
+Inalcansável: S553
+Inalcansável: S554
+Inalcansável: S555
+Inalcansável: S556
+Inalcansável: S557
+Inalcansável: S558
+Inalcansável: S559
+Inalcansável: S560
+Inalcansável: S561
+Inalcansável: S562
+Inalcansável: S563
+Inalcansável: S564
+Inalcansável: S565
+Inalcansável: S566
+Inalcansável: S567
+Inalcansável: S568
+Inalcansável: S569
+Inalcansável: S570
+Inalcansável: S571
+Inalcansável: S572
+Inalcansável: S573
+Inalcansável: S574
+Inalcansável: S575
+Inalcansável: S576
+Inalcansável: S577
+Inalcansável: S578
+Inalcansável: S579
+Inalcansável: S580
+Inalcansável: S581
+Inalcansável: S582
+Inalcansável: S583
+Inalcansável: S584
+Inalcansável: S585
+Inalcansável: S586
+Inalcansável: S587
+Inalcansável: S588
+Inalcansável: S589
+Inalcansável: S590
+Inalcansável: S591
+Inalcansável: S592
+Inalcansável: S593
+Inalcansável: S594
+Inalcansável: S595
+Inalcansável: S596
+Inalcansável: S597
+Inalcansável: S598
+Inalcansável: S599
+Inalcansável: S600
+Inalcansável: S601
+Inalcansável: S602
+Inalcansável: S603
+Inalcansável: S604
+Inalcansável: S605
+Inalcansável: S606
+Inalcansável: S607
+Inalcansável: S608
+Inalcansável: S609
+Inalcansável: S610
+Inalcansável: S611
+Inalcansável: S612
+Inalcansável: S613
+Inalcansável: S614
+Inalcansável: S615
+Inalcansável: S616
+Inalcansável: S617
+Inalcansável: S618
+Inalcansável: S619
+Inalcansável: S620
+Inalcansável: S621
+Inalcansável: S622
+Inalcansável: S623
+Inalcansável: S624
+Inalcansável: S625
+Inalcansável: S626
+Inalcansável: S627
+Inalcansável: S628
+Inalcansável: S629
+Inalcansável: S630
+Inalcansável: S631
+Inalcansável: S632
+Inalcansável: S633
+Inalcansável: S634
+Inalcansável: S635
+Inalcansável: S636
+Inalcansável: S637
+Inalcansável: S638
+Inalcansável: S639
+Inalcansável: S640
+Inalcansável: S641
+Inalcansável: S642
+Inalcansável: S643
+Inalcansável: S644
+Inalcansável: S645
+Inalcansável: S646
+Inalcansável: S647
+Inalcansável: S648
+Inalcansável: S649
+Inalcansável: S650
+Inalcansável: S651
+Inalcansável: S652
+Inalcansável: S653
+Inalcansável: S654
+Inalcansável: S655
+Inalcansável: S656
+Inalcansável: S657
+Inalcansável: S658
+Inalcansável: S659
+Inalcansável: S660
+Inalcansável: S661
+Inalcansável: S662
+Inalcansável: S663
+Inalcansável: S664
+Inalcansável: S665
+Inalcansável: S666
+Inalcansável: S667
+Inalcansável: S668
+Inalcansável: S669
+Inalcansável: S670
+Inalcansável: S671
+Inalcansável: S672
+Inalcansável: S673
+Inalcansável: S674
+Inalcansável: S675
+Inalcansável: S676
+Inalcansável: S677
+Inalcansável: S678
+Inalcansável: S679
+Inalcansável: S680
+Inalcansável: S681
+Inalcansável: S682
+Inalcansável: S683
+Inalcansável: S684
+Inalcansável: S685
+Inalcansável: S686
+Inalcansável: S687
+Inalcansável: S688
+Inalcansável: S689
+Inalcansável: S690
+Inalcansável: S691
+Inalcansável: S692
+Inalcansável: S693
+Inalcansável: S694
+Inalcansável: S695
+Inalcansável: S696
+Inalcansável: S697
+Inalcansável: S698
+Inalcansável: S699
+Inalcansável: S700
+Inalcansável: S701
+Inalcansável: S702
+Inalcansável: S703
+Inalcansável: S704
+Inalcansável: S705
+Inalcansável: S706
+Inalcansável: S707
+Inalcansável: S708
+Inalcansável: S709
+Inalcansável: S710
+Inalcansável: S711
+Inalcansável: S712
+Inalcansável: S713
+Inalcansável: S714
+Inalcansável: S715
+Inalcansável: S716
+Inalcansável: S717
+Inalcansável: S718
+Inalcansável: S719
+Inalcansável: S720
+Inalcansável: S721
+Inalcansável: S722
+Inalcansável: S723
+Inalcansável: S724
+Inalcansável: S725
+Inalcansável: S726
+Inalcansável: S727
+Inalcansável: S728
+Inalcansável: S729
+Inalcansável: S730
+Inalcansável: S731
+Inalcansável: S732
+Inalcansável: S733
+Inalcansável: S734
+Inalcansável: S735
+Inalcansável: S736
+Inalcansável: S737
+Inalcansável: S738
+Inalcansável: S739
+Inalcansável: S740
+Inalcansável: S741
+Inalcansável: S742
+Inalcansável: S743
+Inalcansável: S744
+Inalcansável: S745
+Inalcansável: S746
+Inalcansável: S747
+Inalcansável: S748
+Inalcansável: S749
+Inalcansável: S750
+Inalcansável: S751
+Inalcansável: S752
+Inalcansável: S753
+Inalcansável: S754
+Inalcansável: S755
+Inalcansável: S756
+Inalcansável: S757
+Inalcansável: S758
+Inalcansável: S759
+Inalcansável: S760
+Inalcansável: S761
+Inalcansável: S762
+Inalcansável: S763
+Inalcansável: S764
+Inalcansável: S765
+Inalcansável: S766
+Inalcansável: S767
+Inalcansável: S768
+Inalcansável: S769
+Inalcansável: S770
+Inalcansável: S771
+Inalcansável: S772
+Inalcansável: S773
+Inalcansável: S774
+Inalcansável: S775
+Inalcansável: S776
+Inalcansável: S777
+Inalcansável: S778
+Inalcansável: S779
+Inalcansável: S780
+Inalcansável: S781
+Inalcansável: S782
+Inalcansável: S783
+Inalcansável: S784
+Inalcansável: S785
+Inalcansável: S786
+Inalcansável: S787
+Inalcansável: S788
+Inalcansável: S789
+Inalcansável: S790
+Inalcansável: S791
+Inalcansável: S792
+Inalcansável: S793
+Inalcansável: S794
+Inalcansável: S795
+Inalcansável: S796
+Inalcansável: S797
+Inalcansável: S798
+Inalcansável: S799
+Inalcansável: S800
+Inalcansável: S801
+Inalcansável: S802
+Inalcansável: S803
+Inalcansável: S804
+Inalcansável: S805
+Inalcansável: S806
+Inalcansável: S807
+Inalcansável: S808
+Inalcansável: S809
+Inalcansável: S810
+Inalcansável: S811
+Inalcansável: S812
+Inalcansável: S813
+Inalcansável: S814
+Inalcansável: S815
+Inalcansável: S816
+Inalcansável: S817
+Inalcansável: S818
+Inalcansável: S819
+Inalcansável: S820
+Inalcansável: S821
+Inalcansável: S822
+Inalcansável: S823
+Inalcansável: S824
+Inalcansável: S825
+Inalcansável: S826
+Inalcansável: S827
+Inalcansável: S828
+Inalcansável: S829
+Inalcansável: S830
+Inalcansável: S831
+Inalcansável: S832
+Inalcansável: S833
+Inalcansável: S834
+Inalcansável: S835
+Inalcansável: S836
+Inalcansável: S837
+Inalcansável: S838
+Inalcansável: S839
+Inalcansável: S840
+Inalcansável: S841
+Inalcansável: S842
+Inalcansável: S843
+Inalcansável: S844
+Inalcansável: S845
+Inalcansável: S846
+Inalcansável: S847
+Inalcansável: S848
+Inalcansável: S849
+Inalcansável: S850
+Inalcansável: S851
+Inalcansável: S852
+Inalcansável: S853
+Inalcansável: S854
+Inalcansável: S855
+Inalcansável: S856
+Inalcansável: S857
+Inalcansável: S858
+Inalcansável: S859
+Inalcansável: S860
+Inalcansável: S861
+Inalcansável: S862
+Inalcansável: S863
+Inalcansável: S864
+Inalcansável: S865
+Inalcansável: S866
+Inalcansável: S867
+Inalcansável: S868
+Inalcansável: S869
+Inalcansável: S870
+Inalcansável: S871
+Inalcansável: S872
+Inalcansável: S873
+Inalcansável: S874
+Inalcansável: S875
+Inalcansável: S876
+Inalcansável: S877
+Inalcansável: S878
+Inalcansável: S879
+Inalcansável: S880
+Inalcansável: S881
+Inalcansável: S882
+Inalcansável: S883
+Inalcansável: S884
+Inalcansável: S885
+Inalcansável: S886
+Inalcansável: S887
+Inalcansável: S888
+Inalcansável: S889
+Inalcansável: S890
+Inalcansável: S891
+Inalcansável: S892
+Inalcansável: S893
+Inalcansável: S894
+Inalcansável: S895
+Inalcansável: S896
+Inalcansável: S897
+Inalcansável: S898
+Inalcansável: S899
+Inalcansável: S900
+Inalcansável: S901
+Inalcansável: S902
+Inalcansável: S903
+Inalcansável: S904
+Inalcansável: S905
+Inalcansável: S906
+Inalcansável: S907
+Inalcansável: S908
+Inalcansável: S909
+Inalcansável: S910
+Inalcansável: S911
+Inalcansável: S912
+Inalcansável: S913
+Inalcansável: S914
+Inalcansável: S915
+Inalcansável: S916
+Inalcansável: S917
+Inalcansável: S918
+Inalcansável: S919
+Inalcansável: S920
+Inalcansável: S921
+Inalcansável: S922
+Inalcansável: S923
+Inalcansável: S924
+Inalcansável: S925
+Inalcansável: S926
+Inalcansável: S927
+Inalcansável: S928
+Inalcansável: S929
+Inalcansável: S930
+Inalcansável: S931
+Inalcansável: S932
+Inalcansável: S933
+Inalcansável: S934
+Inalcansável: S935
+Inalcansável: S936
+Inalcansável: S937
+Inalcansável: S938
+Inalcansável: S939
+Inalcansável: S940
+Inalcansável: S941
+Inalcansável: S942
+Inalcansável: S943
+Inalcansável: S944
+Inalcansável: S945
+Inalcansável: S946
+Inalcansável: S947
+Inalcansável: S948
+Inalcansável: S949
+Inalcansável: S950
+Inalcansável: S951
+Inalcansável: S952
+Inalcansável: S953
+Inalcansável: S954
+Inalcansável: S955
+Inalcansável: S956
+Inalcansável: S957
+Inalcansável: S958
+Inalcansável: S959
+Inalcansável: S960
+Inalcansável: S961
+Inalcansável: S962
+Inalcansável: S963
+Inalcansável: S964
+Inalcansável: S965
+Inalcansável: S966
+Inalcansável: S967
+Inalcansável: S968
+Inalcansável: S969
+Inalcansável: S970
+Inalcansável: S971
+Inalcansável: S972
+Inalcansável: S973
+Inalcansável: S974
+Inalcansável: S975
+Inalcansável: S976
+Inalcansável: S977
+Inalcansável: S978
+Inalcansável: S979
+Inalcansável: S980
+Inalcansável: S981
+Inalcansável: S982
+Inalcansável: S983
+Inalcansável: S984
+Inalcansável: S985
+Inalcansável: S986
+Inalcansável: S987
+Inalcansável: S988
+Inalcansável: S989
+Inalcansável: S990
+Inalcansável: S991
+Inalcansável: S992
+Inalcansável: S993
+Inalcansável: S994
+Inalcansável: S995
+Inalcansável: S996
+Inalcansável: S997
+Inalcansável: S998
+Inalcansável: S999
+Inalcansável: S1000
+Inalcansável: S1001
+Inalcansável: S1002
+Inalcansável: S1003
+Inalcansável: S1004
+Inalcansável: S1005
+Inalcansável: S1006
+Inalcansável: S1007
+Inalcansável: S1008
+Inalcansável: S1009
+Inalcansável: S1010
+Inalcansável: S1011
+Inalcansável: S1012
+Inalcansável: S1013
+Inalcansável: S1014
+Inalcansável: S1015
+Inalcansável: S1016
+Inalcansável: S1017
+Inalcansável: S1018
+Inalcansável: S1019
+Inalcansável: S1020
+Inalcansável: S1021
+--------------------
+Estado Inicial: 
+S1022
+Estados Finais (F):
+S85
+S275
+S323
+Estados:
+S85 = {q9,q1,q2,q4,q6,q8}
+S275 = {q9,q2,q3,q4,q6,q7}
+S323 = {q9,q2,q4,q5,q6,q7}
+S1022 = {q0}
+Alfabeto:
+a
+b
+c
+Transições:
+S85,S275,b
+S85,S323,c
+S275,S275,b
+S275,S323,c
+S323,S275,b
+S323,S323,c
+S1022,S85,a
+-- Minimização AFD ---
+Tabela de transição AFD:
+V,	S275,	S323,	
+V,	S275,	S323,	
+V,	S275,	S323,	
+S85,	V,	V,	
+V,	V,	V,	
+Tabela dos finais com não finais:
+S275	A	
+S323	A	A	
+S1022	X	X	X	
+V	X	X	X	A	
+	 S85	S275	S323	S1022	
+R:V:S85
+ListaA
+Tabela de equivalência:
+S275	A	
+S323	A	A	
+S1022	X	X	X	
+V	X	X	X	X	
+	 S85	S275	S323	S1022	
+N0
+N0
+N0
+------ saída ---------
+--------------------
+Estado Inicial: 
+S1022
+Estados Finais (F):
+N0
+Estados:
+N0
+S1022
+Alfabeto:
+a
+b
+c
+Transições:
+N0,N0,b
+N0,N0,c
+S1022,N0,a
+Deseja continuar? (s/n)
