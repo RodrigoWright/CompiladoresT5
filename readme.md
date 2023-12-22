@@ -1,4 +1,4 @@
-# Conversor AFN para AFD
+# Conversor AFNe para mínimo AFD
 
 Esse programa foi escrito em C++, para o trabalho da disciplina de Compiladores 1. Nele, é feito a conversão de um AFN (Autômato Finito Não Determinístico) para o mínimo AFD (Autômato Finito Determinístico), retirando as transições em épsilon (vazias) utilizando o algorítimo de Thompson.
 
